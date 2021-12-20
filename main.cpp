@@ -23,7 +23,7 @@ int main() {
 	
 	double res = average(timeHistory,checkNum);
 	//print result
-	(isSorted(array, n)) ? printf("Array sorted\n") : printf("Array not sorted\n");
+	(isSorted(array, n)) ? printf("Array sorted\n") : printf("Array not sorted.Please write to my creator)\n");
 	
 	printf("Average time(%d checks):%lf sec \n",checkNum,res);
 	free(array);
