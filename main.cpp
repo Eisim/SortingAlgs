@@ -3,21 +3,30 @@
 int main() {
 	srand(time(0));
 
-	int n;
+	LenType n,checkNum;
+	
 	printf("Lenght:");
 	scanf_s("%d", &n);
-
+	printf("Check Number:");
+	scanf_s("%d",&checkNum);
+	//create array
 	NeedType* array = (NeedType*)malloc(n * sizeof(NeedType));
 	CreateArray(&array[0], n);
-
-	//for (int i = 0; i < n; i++) printf("%f\n", array[i]);
+	//start sorting
 	printf("\n---Result---\n");
-	
-	unsigned res =  checkTime(startMergeSort, &array[0], n);
-	
-	//for (int i = 0; i < n; i++) printf("%lf\n", array[i]);
 
-	printf("Time:%d",res);
+	double* timeHistory=(double*)malloc(sizeof(double)* checkNum);
+	//take average time
+	for (int i = 0; i < checkNum; i++) {
+		timeHistory[i] = checkTime(startMergeSort, array, n);
+	}
+	
+	double res = average(timeHistory,checkNum);
+	//print result
+	(isSorted(array, n)) ? printf("Array sorted\n") : printf("Array not sorted\n");
+	
+	printf("Average time(%d checks):%lf sec \n",checkNum,res);
 	free(array);
+	free(timeHistory);
 	return 0;
 }
