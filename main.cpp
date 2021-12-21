@@ -19,8 +19,9 @@ int main() {
 	//take average time
 	for (int i = 0; i < checkNum; i++) {
 		timeHistory[i] = checkTime(startMergeSort, array, n);
-		CreateArray(&array[0], n);
 		(isSorted(array, n)) ? printf("%d)Array sorted\n",i) : printf("Array not sorted.Please write to my creator)\n");
+		CreateArray(&array[0], n);
+		
 	}
 	
 	double res = average(timeHistory,checkNum);
