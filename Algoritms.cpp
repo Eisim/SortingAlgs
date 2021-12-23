@@ -75,7 +75,6 @@ void Merge(NeedType Mas[], int left, int right, int mid, NeedType TmpMas[])
     int count = right - left + 1;
 
     if (count <= 1) {
-        free(TmpMas);
         return;
     }
 
@@ -103,6 +102,7 @@ void Merge(NeedType Mas[], int left, int right, int mid, NeedType TmpMas[])
 void startMergeSort(NeedType a[], LenType n) {
     NeedType* TmpMas = (NeedType*)malloc(sizeof(NeedType) * n);
     MergeSort(a, 0, n - 1, TmpMas);
+    free(TmpMas);
 }
 
 
